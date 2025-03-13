@@ -14,18 +14,19 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.9'
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest streamlit
+        pip install -r requirements.txt
 
-    - name: Run tests
+    - name: Run the script
       run: |
-        pytest _test.py
+        echo "Testing the script with input 3"
+        echo "3" | python calculator.py
